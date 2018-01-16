@@ -43,14 +43,12 @@ def par_kmeans(k, procs, max_iters=100, seed=117, data=None):
     if max_iters <= 1:
         raise Exception("You should really have at least 2 iterations.")
 
-
     # Initialize random centroids from data
     initial_centroids = np.array(data.loc[np.random.choice(data.index, k, replace=False)])
 
     # Extract index of data, shuffle it
     data_index = np.array(data.index)
     np.random.shuffle(data_index)
-
 
     # Iterate
     def iterate(initial_centroids):
@@ -76,8 +74,13 @@ def par_kmeans(k, procs, max_iters=100, seed=117, data=None):
 
         def multi_proc_kmeans(data_slice, receive_centroids_conn, id_send_conn):
             """
-            This function continuosly checks the processes pipe's for new centroids, and returns
-            the cluster ids it calculates given its share of the data and the centroids.
+            This function continuosly checks the processes pipe's for new
+            centroids, and returns the cluster ids it calculates given its
+            share of the data and the centroids.
+
+            This implementation, together with pipes, guarantees that the
+            expensive process of killing and restarting a process need not
+            occur.
 
             (pd.DataFrame) data_slice: Some or all of the original data
             (Pipe) receive_centroids_conn: Pipe to receive centroid data from
@@ -113,7 +116,7 @@ def par_kmeans(k, procs, max_iters=100, seed=117, data=None):
         while not convergence:
             num_iters += 1
             result = [] 
-            if procs > 1: # Use module if more than 1 proc specified
+            if procs > 1: # Use mp if more than 1 proc specified
                 for centroid_pipe, id_pipe in zip(centroid_sending, id_receiving):
                     # Send each process the centroid coordinates
                     centroid_pipe.send(working_centroids)
@@ -124,13 +127,12 @@ def par_kmeans(k, procs, max_iters=100, seed=117, data=None):
                 # Structure the results in a way that makes calculation of new
                 # centroids convenient
                 result = np.vstack([np.transpose(ids_indices) for ids_indices in result])
-            else: # Otherwise do not create multiple processes
+            else: # Otherwise do not use multiple processes
                 result = np.transpose(calc_cluster_id(data.loc[:, data.columns !=
                     "cluster_id"], working_centroids))
 
             # Give results same ordering as dataframe
             result.sort(axis=0)
-
 
             # Check for convergence (no cluster_id changes or max_iters
             # reached)
@@ -148,7 +150,7 @@ def par_kmeans(k, procs, max_iters=100, seed=117, data=None):
                 convergence = True
                 print("Convergence reached at {}/{} iterations\n".format(num_iters, max_iters))
 
-                # End processes
+                # End processes if there were multiple
                 if procs > 1:
                     _ = [p.terminate() for p in processes]
                     _ = [p.join() for p in processes]
