@@ -1,6 +1,7 @@
 # Julian McClellan
 # HW1: Par Kmeans
 # Large Scale Data Methods | Winter 2018
+# Python 3.6.1
 
 # Note to keep "Country_Mortgage_Funding.csv" in same working directory!
 
