@@ -3,9 +3,10 @@
 # Large Scale Data Methods | Winter 2018
 # Python 3.6.1
 
-# Note to keep "Country_Mortgage_Funding.csv" in same working directory!
+# IMPORTANT: Keep "Country_Mortgage_Funding.csv" in same working directory!
 
-from multiprocessing import Process, cpu_count, Pipe, Lock
+import os
+from multiprocessing import Process, cpu_count, Pipe
 from scipy.spatial.distance import cdist as distance
 import pandas as pd
 import numpy as np
@@ -163,7 +164,10 @@ def par_kmeans(k, procs, max_iters=100, seed=117, data=None):
                 # Initialize centroids for next iteration 
                 working_centroids = np.array(data.groupby("cluster_id").mean())
 
-        file_name = "Country_Mortgage_Funding_{}_clusters.csv".format(k)
+        # Make a results folder if there isn't one in the current working directory
+        if not os.path.exists("results/"):
+                os.makedirs("results")
+        file_name = "results/Country_Mortgage_Funding_{}_clusters.csv".format(k)
         data.to_csv(file_name)
         print("File written ({})".format(file_name))
         return [data, working_centroids]
