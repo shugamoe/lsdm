@@ -117,7 +117,6 @@ def par_kmeans(k, procs, max_iters=100, seed=117, data=None):
             # Start processes
             _ = [p.start() for p in processes]
 
-
         working_centroids = initial_centroids # We first send the initial centroids
         while not convergence:
             num_iters += 1
