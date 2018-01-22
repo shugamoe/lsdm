@@ -34,6 +34,7 @@ def par_kmeans(k, procs, max_iters=100, seed=117, data=None):
         (list): Index 0 is the centroids, index 1 is the original data with a
         column of cluster_ids appended
     """
+    np.random.seed(seed) # Set seed
     if cpu_count() < procs:
         print("Warning: Utilizing more processes than CPU's available on this"
                 " computer.")
