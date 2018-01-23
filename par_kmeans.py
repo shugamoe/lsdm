@@ -153,8 +153,12 @@ def par_kmeans(k, procs, max_iters=100, seed=117, data=None):
             data["cluster_id"] = result[:, 1]
 
             if num_iters == max_iters or ids_changed == 0:
-                convergence = True
-                print("Convergence reached at {}/{} iterations\n".format(num_iters, max_iters))
+                convergence = True # Not Necessarily "convergence" if its max_iters
+                print("Finished at {}/{} iterations\n".format(num_iters, max_iters))
+                if num_iters == max_iters:
+                    print("\tSince the maximum iterations were reached before"\
+                        "convergence, consider increasing the number of\
+                        iterations.")
 
                 # End processes if there were multiple
                 if procs > 1:
