@@ -138,7 +138,7 @@ def par_kmeans(k, procs, max_iters=100, seed=117, data=None):
                     "cluster_id"], working_centroids))
 
             # Give results same ordering as dataframe
-            result.sort(axis=0)
+            result = result[result[:,0].argsort()]
 
             # Check for convergence (no cluster_id changes or max_iters
             # reached)
