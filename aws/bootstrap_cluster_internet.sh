@@ -2,21 +2,6 @@
 
 set -ex
 
-# Jupyter from Anaconda
-# wget https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86_64.sh
-# chmod 755 Anaconda3-5.0.1-Linux-x86_64.sh
-# echo "Anaconda downloaded and permissions changed"
-
-
-# echo "Installing Anaconda"
-# ./Anaconda3-5.0.1-Linux-x86_64.sh -b # Batch mode for non-interactive
-# echo 'export PATH="~/anaconda3/bin:$PATH"'
-
-# source ~/.bashrc
-# echo "Anaconda Installed"
-# echo `which python`
-# echo "Python should be from anaconda now"
-
 # Jupyteret with create cluster
 JUPYTER_PASSWORD=${1:-"p4ssword"}
 NOTEBOOK_DIR=${2:-"s3://jcm.lsdm/notebooks/"}
@@ -40,12 +25,12 @@ conda config -f --add channels conda-forge
 conda config -f --add channels defaults
 
 conda install hdfs3 findspark ujson jsonschema toolz boto3 py4j numpy pandas
-	
+
 # cleanup
 rm ~/miniconda.sh
-	
+
 echo bootstrap_conda.sh completed. PATH now: $PATH
-	
+
 # setup python 3.5 in the master and workers
 export PYSPARK_PYTHON="/home/hadoop/conda/bin/python3.6"
 sudo yum -y install python36
@@ -73,7 +58,7 @@ then
     sudo yum install -y libcurl libcurl-devel graphviz
     sudo yum install -y cyrus-sasl cyrus-sasl-devel readline readline-devel gnuplot
     sudo yum install -y automake
-        
+
     # extract BUCKET and FOLDER to mount from NOTEBOOK_DIR
     NOTEBOOK_DIR="${NOTEBOOK_DIR%/}/"
     BUCKET=$(python -c "print('$NOTEBOOK_DIR'.split('//')[1].split('/')[0])")
@@ -114,7 +99,7 @@ then
 cd ~
 sudo cat << EOF > /home/hadoop/jupyter.conf
 description "Jupyter"
-author      "babbel-data-eng"
+author      "Julian modified from https://bytes.babbel.com/en/articles/2017-07-04-spark-with-jupyter-inside-vpc.html"
 
 start on runlevel [2345]
 stop on runlevel [016]
