@@ -1,0 +1,40 @@
+---
+title: "Literature Review"
+author: "Julian McClellan"
+date: "Due 4/22/17"
+output:
+  pdf_document:
+fontsize: 12pt
+bibliography: references.bib
+---
+
+# The Sharp Eyes project
+
+Pervasive country-wide video surveillance network by 2020.  
+
+### Data Source: Video
+
+### Useage
+[Snoopy neighbors report to
+police.](http://paper.people.com.cn/rmrb/html/2017-06/14/nw.D110000renmrb_20170614_4-19.htm)
+
+[Convince boyfriend of human rights lawyer to break up with
+her.](https://www.npr.org/2013/01/29/170469038/in-china-beware-a-camera-may-be-watching-you)
+
+[provide much of the IRL side of the social credit
+score](https://www.theatlantic.com/amp/article/552203/)
+
+[monitor classrooms at Beijing's China University of
+Politics](https://www.npr.org/2013/01/29/170469038/in-china-beware-a-camera-may-be-watching-you)
+
+[False positives](https://www.washingtonpost.com/news/world/wp/2018/01/07/feature/in-china-facial-recognition-is-sharp-end-of-a-drive-for-total-surveillance/?utm_term=.a33210fa93f0).
+
+### Challenges
+Mostly technical, there are fewer legal hurdles in China.
+
+### Connection between government and tech
+Facial recognition, deep learning, AI startups with researchers working to improve video data quality. 
+
+ [Cloudwalk received funding from a city government.](https://www.yicaiglobal.com/news/chinese-ai-firm-cloudwalk-technology-pools-usd7575-million-series-b-funding)
+ 
+> "Companies like SenseTime, Megvii and Cloudwalk provide the software that powers mobile apps allowing people to alter, “beautify” or transform their faces for fun."
