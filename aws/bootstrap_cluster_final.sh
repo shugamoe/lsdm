@@ -3,8 +3,9 @@
 set -ex
 
 # Jupyteret with create cluster
-JUPYTER_PASSWORD=${1:-"p4ssword"}
-NOTEBOOK_DIR=${2:-"s3://jcm.lsdm/notebooks/"}
+NOTEBOOK_DIR="s3://jcm.lsdm/notebooks/"
+PORT=${1:-8194}
+JUPYTER_PASSWORD=${2:-"p4ssword"}
 	
 # mount home to /mnt
 if [ ! -d /mnt/home ]; then
@@ -15,7 +16,7 @@ fi
 # Install conda
 wget https://repo.continuum.io/miniconda/Miniconda3-4.3.31-Linux-x86_64.sh -O /home/hadoop/miniconda.sh\
 	&& /bin/bash ~/miniconda.sh -b -p $HOME/conda
-echo '\nexport PATH=$HOME/conda/bin:$PATH' >> $HOME/.bashrc && source $HOME/.bashrc
+echo "\nexport PATH=$HOME/conda/bin:$PATH" >> $HOME/.bashrc && source $HOME/.bashrc
 conda config --set always_yes yes --set changeps1 no
 	
 # Install additional libraries for all instances with conda
@@ -31,7 +32,7 @@ rm ~/miniconda.sh
 
 echo bootstrap_conda.sh completed. PATH now: $PATH
 
-# setup python 3.5 in the master and workers
+# setup python 3.6 in the master and workers
 export PYSPARK_PYTHON="/home/hadoop/conda/bin/python3.6"
 sudo yum -y install python36
 alias python=python3
@@ -92,7 +93,7 @@ then
     echo "c.NotebookApp.ip = '*'" >> ~/.jupyter/jupyter_notebook_config.py
     echo "c.NotebookApp.notebook_dir = '/mnt/$BUCKET/$FOLDER'" >> ~/.jupyter/jupyter_notebook_config.py
     echo "c.ContentsManager.checkpoints_kwargs = {'root_dir': '.checkpoints'}" >> ~/.jupyter/jupyter_notebook_config.py
-    echo "c.NotebookApp.port = 8157" >> ~/.jupyter/jupyter_notebook_config.py
+    echo "c.NotebookApp.port = $PORT" >> ~/.jupyter/jupyter_notebook_config.py
     echo "c.NotebookApp.shutdown_no_activity = 10" >> ~/.jupyter/jupyter_notebook_config.py
 
 # If on master then start up jupyter daemon (Uses Upstart)
