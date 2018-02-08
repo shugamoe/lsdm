@@ -1,40 +1,75 @@
 ---
-title: "Literature Review"
+title: "The Sharp Eyes Project"
 author: "Julian McClellan"
-date: "Due 4/22/17"
+date: "Due 2/12/18"
 output:
   pdf_document:
 fontsize: 12pt
 bibliography: references.bib
 ---
 
-# The Sharp Eyes project
+*Note that all citations are simply embedded hyperlinks.
 
-Pervasive country-wide video surveillance network by 2020.  
+# The Sharp Eyes Project
 
-### Data Source: Video
+### Overview
+
+This is a country-wide video surveillance network in China that is [planned for completion in 2020.](http://www.ndrc.gov.cn/zcfb/zcfbtz/201505/t20150513_691578.html "Report from National Development and Reform Commission") [An estimated 170 million CCTV cameras are already in place with some 400 million new ones expected to be installed in the next three years.](http://www.bbc.com/news/world-asia-china-42973456) Places like Beijing [are already 100% covered by surveillance cameras](http://en.people.cn/n/2015/1005/c90000-8958235.html). Generally speaking, the system will use facial recognition, artificial intelligence, and even ["neighborhood committees and snoopy residents"](http://paper.people.com.cn/rmrb/html/2017-06/14/nw.D110000renmrb_20170614_4-19.htm) to:
+
+> "[T]rack suspects, spot suspicious behaviors . . . coordinate the work of emergency services; and to monitor the comings and goings of the country's 1.4 billion people"
+
+([Washington Post](http://www.21csp.com.cn/zhanti/xlgcfx/article/article_15369.html) -- Quoting a [security industry report](http://www.21csp.com.cn/zhanti/xlgcfx/article/article_15369.html]))
+
+Some of the functionality of the project is already in place in certain localities, ([like Guiyang)](http://www.bbc.com/news/world-asia-china-42973456). Chinese authorities and private companies utilize CCTV security cameras, and recently more novel "surveillance sunglasses" to gather video data and compare this against photo ID databases, with the picture of every resident, to track past movements and contact with relatives and other acquiantances.
+
+### Challenges 
+
+As with most AI/learning algorithms, a lot of training data is necessary to ensure these facial recognition systems perform as intended, and for many startup companies helping the government develop and implement these technologies, gathering training data isn't a problem. 
+
+From Xu Li, CEO of SenseTime: 
+
+> "It’s easier in China to collect sufficient training data. If we want to do new innovations, China will have advantages in data collection in a legal way."
+
+Given the legal laxity in this area, facial recognition apps used by some Chinese startups that have Snapchat-like functionality may also be used to help develop more surveillance-oriented products.
+
+[This stands in contrast to the use of facial recognition in countries like the United States, where government agencies typically only compare video footage to databases containing mugshots from local or federal law enforcement.](https://www.reuters.com/article/us-usa-cyber-face-recognition/rights-groups-request-u-s-probe-police-use-of-facial-recognition-idUSKCN12I2AD)
+
+Indeed, many of the hurdles of implementing such a system are largely technical, and likely come down to infrastructural issues like storeage and networking; the nationalization of the system, as opposed to the largely local implementations available now. While details on these are unsurprisingly scarce, in an apparent effort to get the most out of its own video data, the Chinese government partners with startups like [SenseTime](https://www.sensetime.com/), [Megvii](http://megvii.us/index.html), and [Cloudwalk](https://www.chinamoneynetwork.com/2017/11/20/chinese-ai-facial-recognition-firm-cloudwalk-technology-completes-75m-series-b-round), some of whom [have published papers on methods like video deblurring, shape completion, and video frame fusion](http://megvii.us/publications.html), while others are [actively applying for patents in these spaces.](https://www.sensetime.com/ourCompany).
+
+It's no surprise then that tech companies can claim greater accuracy rates for facial recognition than say, [the FBI.](https://www.washingtonpost.com/news/world/wp/2018/01/07/feature/in-china-facial-recognition-is-sharp-end-of-a-drive-for-total-surveillance/?utm_term=.401f7a1363d5)
+
+### Moving Forward
+
+Given the Sharp Eyes Project's emphasis to individual identities, the history of [Chinese government partnership with technology firms like Tencent (makers of WeChat) and Alibaba](https://www.wsj.com/articles/chinas-tech-giants-have-a-second-job-helping-the-government-see-everything-1512056284), and even [current government investment in some facial recognition/AI startups](https://www.chinamoneynetwork.com/2017/11/20/chinese-ai-facial-recognition-firm-cloudwalk-technology-completes-75m-series-b-round) there has been speculation that the video-surveillance of the Sharp Eyes Project could be combined with current electronic surveillance and rolled into data for the often mentioned ["Social Credit System" (SCS)](https://futurism.com/china-social-credit-system-rate-human-value/), [which will be mandatory for all Chinese citizens by 2020](https://chinacopyrightandmedia.wordpress.com/2014/06/14/planning-outline-for-the-construction-of-a-social-credit-system-2014-2020/). 
+
+There is also some uncertainty over exactly what video-surveillance information will be tracked and how a national system might supersede local ones, or integrate with them.  For example, in some instances, [jaywalking offenders have been reported in local newspapers](http://www.straitstimes.com/opinion/chinas-all-seeing-surveillance-state-is-reading-its-citizens-faces), and yet in [Chongqing the practice of identifying jaywalkers have been abandoned](https://www.washingtonpost.com/news/world/wp/2018/01/07/feature/in-china-facial-recognition-is-sharp-end-of-a-drive-for-total-surveillance/?utm_term=.401f7a1363d5).
+
+There are currently concerns by certain governments and human rights groups over the use of surveillance, both video and otherwise, in a targeted matter against individuals (potentially) critical to the Chinese government. Video surveillance has been installed to [monitor classrooms at Beijing's China University of Politics](https://www.npr.org/2013/01/29/170469038/in-china-beware-a-camera-may-be-watching-you). Allegedly, it was used to [urge the boyfriend of a human rights lawyer to break up with
+her.](https://www.npr.org/2013/01/29/170469038/in-china-beware-a-camera-may-be-watching-you). Because association with suspects can also arouse suspicion, and given that false positives can never be completely eliminated, there is also the concern that as the Sharp Eyes Project develops, more and more people might be targeted or apprehended for simply being at the wrong place at the wrong time.
+
+That isn't to say that Chinese citizens 
+
+
+
+
+---
+---
 
 ### Useage
-[Snoopy neighbors report to
-police.](http://paper.people.com.cn/rmrb/html/2017-06/14/nw.D110000renmrb_20170614_4-19.htm)
 
-[Convince boyfriend of human rights lawyer to break up with
-her.](https://www.npr.org/2013/01/29/170469038/in-china-beware-a-camera-may-be-watching-you)
 
 [provide much of the IRL side of the social credit
 score](https://www.theatlantic.com/amp/article/552203/)
 
-[monitor classrooms at Beijing's China University of
-Politics](https://www.npr.org/2013/01/29/170469038/in-china-beware-a-camera-may-be-watching-you)
 
 [False positives](https://www.washingtonpost.com/news/world/wp/2018/01/07/feature/in-china-facial-recognition-is-sharp-end-of-a-drive-for-total-surveillance/?utm_term=.a33210fa93f0).
+
+[Uigurs](http://www.bbc.com/news/av/world-asia-china-42911468/china-xinjiang-police-state-fear-and-resentment)
+
+[police facial recognition glasses](http://www.bbc.com/news/world-asia-china-42973456)
 
 ### Challenges
 Mostly technical, there are fewer legal hurdles in China.
 
 ### Connection between government and tech
 Facial recognition, deep learning, AI startups with researchers working to improve video data quality. 
-
- [Cloudwalk received funding from a city government.](https://www.yicaiglobal.com/news/chinese-ai-firm-cloudwalk-technology-pools-usd7575-million-series-b-funding)
- 
-> "Companies like SenseTime, Megvii and Cloudwalk provide the software that powers mobile apps allowing people to alter, “beautify” or transform their faces for fun."
